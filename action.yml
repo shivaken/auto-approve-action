@@ -1,0 +1,23 @@
+name: "Auto-Approver PR"
+decription: "Automatically approve pull requests based on specific criteria"
+author: "Kenichi Otsuka"
+branding:
+  icon: "thumbs-up"
+  color: "green"
+
+inputs:
+  github-token:
+    description: "Token with pull_requests:write"
+    require: true
+  message:
+    description: "Approval message"
+    required: false
+    default: "Auto-approved by GitHub Action :robot:"
+
+outputs:
+  approved:
+    description: "true if approval submitted"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
